@@ -1,0 +1,8 @@
+<ui-select ng-model="model.selection" theme="bootstrap" ng-required="required">
+  <ui-select-match placeholder="{{'ACCOUNTS.FIELDS.SELECT-ACCOUNT-PLACEHOLDER' | translate}}">
+    <span>{{$select.selected.name}}</span>
+  </ui-select-match>
+  <ui-select-choices repeat="item.id as item in accounts | filter: $select.search">
+    <span ng-bind-html="item.name | highlight: $select.search"></span>
+  </ui-select-choices>
+</ui-select>

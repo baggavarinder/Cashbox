@@ -1,0 +1,56 @@
+<div class="cb-page-projects">
+  <section class="cb-page-section">
+    <div class="cb-section-header">
+      <h3 translate>COMMON.PROJECTS</h3>
+    </div>
+
+    <table st-table="displayedProjects" st-safe-src="projects" class="table table-hover cb-projects-grid">
+      <thead>
+      <tr>
+        <th class="td-name" translate>PROJECTS.PROJECTS-GRID.NAME
+        </td>
+        <th class="td-income" translate>PROJECTS.FIELDS.INCOME
+        </td>
+        <th class="td-expenses" translate>PROJECTS.FIELDS.EXPENSES
+        </td>
+        <th class="td-difference" translate>PROJECTS.FIELDS.DIFFERENCE
+        </td>
+        <th class="td-type-actions">&nbsp
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="project in displayedProjects">
+        <td class="td-name"
+            title="{{'TRANSACTIONS.TRANSACTIONS-COUNT' | translate:{'count': project.transactions_count || 0} }}">
+          {{project.name}} ({{project.transactions_count || 0}})
+        </td>
+        <td class="td-income td-type-amount">{{project.incomes_total | primaryCurrency}}</td>
+        <td class="td-expenses td-type-amount">{{project.expenses_total | primaryCurrency}}</td>
+        <td class="td-difference td-type-amount">{{getProjectDifference(project) | primaryCurrency}}</td>
+        <td class="td-type-actions">
+          <a href="#" ng-click="editProject(project)">
+            <span class="sprite sprite-common-edit-dark cb-icon-edit icon-rounded"></span>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <th class="td-name"
+            title="{{'TRANSACTIONS.TRANSACTIONS-COUNT' | translate:{'count': getTotalTransactionsCount() || 0} }}">Total
+          ({{getTotalTransactionsCount()}})
+        </th>
+        <td class="td-income td-type-amount">{{getTotalIncome() | primaryCurrency:{showZero: true} }}</td>
+        <td class="td-expenses td-type-amount">{{getTotalExpenses() | primaryCurrency:{showZero: true} }}</td>
+        <td class="td-difference td-type-amount">{{getTotalDifference() | primaryCurrency:{showZero: true} }}</td>
+        <td class="td-type-actions">&nbsp;</td>
+      </tr>
+      </tfoot>
+    </table>
+
+    <div class="cb-actions-panel">
+      <button class="btn btn-major cb-btn-add" ng-click="createProject()" translate>PROJECTS.ACTIONS.ADD</button>
+    </div>
+  </section>
+</div>

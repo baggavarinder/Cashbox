@@ -1,0 +1,31 @@
+<form name="accountEditForm" ng-submit="accountEditForm.$valid && createAccount()" novalidate>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="cancel()">
+      <span aria-hidden="true">×</span>
+    </button>
+    <h3 class="modal-title" translate>ACCOUNTS.ACCOUNT-ADD-EDIT-DIALOG.TITLE</h3>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="account-name" translate>ACCOUNTS.FIELDS.NAME</label>
+      <input type="text" id="account-name" class="form-control" ng-model="account.name" focus-on="account-name-field"
+             required/>
+    </div>
+    <!--Added by Harpreet-->  
+    <div class="form-group">
+      <label for="account-type" translate>ACCOUNTS.FIELDS.TYPE</label>
+		  <select class="form-control" ng-model="account.type">
+			 <option ng-repeat="accountType in accountTypes"  value="{{ accountType }}" ng-selected="accountType == account.type">{{ accountType }}</option>
+		  </select>
+      </div>
+    </div>
+	<!--End-->  
+  </div>
+  
+  <div class="modal-footer">
+    <div class="cb-modal-actions">
+      <button type="submit" class="btn btn-primary" translate>ACCOUNTS.ACCOUNT-ADD-EDIT-DIALOG.SAVE</button>
+      <button type="button" class="btn btn-link btn-danger" translate ng-if="isAccountSaved()" ng-click="deleteAccount(account)">ACCOUNTS.ACCOUNT-ADD-EDIT-DIALOG.DELETE</button>
+    </div>
+  </div>
+</form>

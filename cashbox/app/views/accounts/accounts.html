@@ -1,0 +1,47 @@
+<div class="cb-page-accounts">
+  <section class="cb-page-section">
+
+    <div class="cb-section-header">
+      <h3 translate>COMMON.ACCOUNTS</h3>
+    </div>
+
+    <div class="cb-section-subheader">
+      <p>
+        <span translate>ACCOUNTS.TOTAL-BALANCE</span>:
+        <strong class="cb-amount">{{getTotalBalance() | primaryCurrency:{showZero: true} }}</strong>
+      </p>
+    </div>
+
+    <ul class="cb-account-list">
+      <li class="cb-account-card" ng-repeat="account in accounts">
+        <div class="cb-account-card-heading">
+          <h4>
+			  <img src="{{account.icon.image}}" alt="{{account.name}}" />
+			  <span>{{account.name}}</span>
+			</h4>
+          <a href="#" ng-click="editAccount(account)">
+            <span class="sprite sprite-common-edit-dark cb-icon-edit icon-rounded"></span>
+          </a>
+        </div>
+        <div class="cb-account-card-body">
+          <p>
+            <strong class="cb-amount">{{account.current_balance | primaryCurrency:{showZero: true} }}</strong>
+            <span>{{'TRANSACTIONS.TRANSACTIONS-COUNT' | translate:{count:account.transactions_count || 0} }}</span>
+          </p>
+        </div>
+      </li>
+      <li class="cb-account-card cb-account-card-new">
+        <a class="cb-account-card-body" href="#" ng-click="createAccount()"
+           title="{{'ACCOUNTS.ACTIONS.ADD' | translate}}">
+        </a>
+      </li>
+    </ul>
+
+    <div class="cb-section-footer">
+      <p>
+        <span translate>ACCOUNTS.TOTAL-BALANCE</span>:
+        <strong class="cb-amount">{{getTotalBalance() | primaryCurrency:{showZero: true} }}</strong>
+      </p>
+    </div>
+  </section>
+</div>

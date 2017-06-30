@@ -1,0 +1,22 @@
+@media (min-width: $grid-float-breakpoint) {
+  .cb-page-accounts {
+    .cb-section-subheader {
+      display: none;
+    }
+
+    .cb-section-footer {
+      text-align: center;
+
+      p {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: $headings-font-family;
+
+        strong {
+          font-size: 21px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

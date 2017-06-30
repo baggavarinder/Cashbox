@@ -1,0 +1,99 @@
+@import "accounts.xs";
+@import "accounts.sm";
+
+.cb-account-list {
+  padding: 0;
+  margin-bottom: $unit4x;
+  margin-top: -$unit4x;
+  margin-right: -$unit4x;
+  text-align: center;
+}
+
+.cb-account-card {
+  $cb-card-border-radius: $unit2x;
+  $cb-card-heading-height: 50px;
+  $cb-card-body-height: 100px;
+
+  display: inline-block;
+  width: 250px;
+  border: 1px solid rgb(236, 239, 242);
+  border-radius: $cb-card-border-radius;
+  margin-right: $unit4x;
+  margin-top: $unit4x;
+  vertical-align: top;
+  text-align: start;
+
+  .cb-account-card-heading {
+    padding: $unit $unit2x;
+    height: $cb-card-heading-height;
+    border-bottom: 1px solid rgb(236, 239, 242);
+    position: relative;
+
+    h4 {
+      font-size: $font-size-base;
+      margin: 0;
+      margin-right: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .cb-icon-edit {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .cb-account-card-body {
+    display: block;
+    padding: $unit2x;
+    height: $cb-card-body-height;
+    background: rgb(247, 250, 252);
+    border-bottom-left-radius: $cb-card-border-radius;
+    border-bottom-right-radius: $cb-card-border-radius;
+    font-family: $headings-font-family;
+    cursor: pointer;
+    @include animate-bg();
+
+    &:hover {
+      background-color: rgb(255, 255, 255);
+      @include animate-bg();
+    }
+
+    p {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      strong {
+        display: block;
+        line-height: 2.5;
+        font-size: 21px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  &.cb-account-card-new {
+    $cb-account-card-new-height: $cb-card-heading-height + $cb-card-body-height;
+
+    .cb-account-card-body {
+      height: $cb-account-card-new-height;
+      text-align: center;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    .cb-account-card-body:after {
+      content: '+';
+      font-size: 140px;
+      line-height: 100px;
+      color: rgb(220, 224, 230);
+    }
+  }
+}

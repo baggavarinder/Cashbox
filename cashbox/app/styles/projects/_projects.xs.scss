@@ -1,0 +1,11 @@
+@media (max-width: $grid-float-breakpoint-max) {
+  .cb-page-projects {
+    .cb-projects-grid {
+      .td-income,
+      .td-expenses,
+      .td-difference {
+        display: none;
+      }
+    }
+  }
+}

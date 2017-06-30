@@ -1,0 +1,27 @@
+@media (max-width: $grid-float-breakpoint-max) {
+  .cb-page-accounts {
+
+    .cb-section-header {
+      margin-bottom: 0;
+    }
+
+    .cb-section-footer {
+      display: none;
+    }
+
+    .cb-section-subheader {
+      display: block;
+
+      p {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: $headings-font-family;
+
+        strong {
+          font-size: 21px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
